@@ -1,8 +1,30 @@
 
-# genai.configure(api_key=GEMINI_API_KEY)  # type: ignore
+# # genai.configure(api_key=GEMINI_API_KEY)  # type: ignore
+
+# import fitz  # PyMuPDF
+# from google import genai
+# import PIL.Image
+# import io
+# import json
+# import os
+# from typing import Optional
+# from dotenv import load_dotenv
+
+# load_dotenv()  # Load environment variables from .env file
+
+# GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
+# if not GEMINI_API_KEY:
+#     raise ValueError("GEMINI_API_KEY set here")
+#     client = None
+# else:
+#     client = genai.Client(api_key=api_key)
+# genai.configure(api_key=GEMINI_API_KEY)
+# # Using Gemini 1.5 Flash
+# model = genai.GenerativeModel('gemini-2.5-flash')
+
 
 import fitz  # PyMuPDF
-from google import genai
+import google.generativeai as genai
 import PIL.Image
 import io
 import json
@@ -12,16 +34,16 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file
 
-GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
-if not GEMINI_API_KEY:
-    raise ValueError("GEMINI_API_KEY set here")
-    client = None
-else:
-    client = genai.Client(api_key=api_key)
-genai.configure(api_key=GEMINI_API_KEY)
-# Using Gemini 1.5 Flash
-model = genai.GenerativeModel('gemini-2.5-flash')
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+# Agar Railway par key nahi mili, toh crash karne ke bajaye bas warning denge
+if not GEMINI_API_KEY:
+    print("WARNING: GEMINI_API_KEY is missing in environment variables!")
+else:
+    genai.configure(api_key=GEMINI_API_KEY)
+
+# Using Gemini 2.5 Flash
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 # --- HELPER FUNCTION ---
 def _convert_pdf_to_images(pdf_bytes: bytes, start_page: int = 0, end_page: Optional[int] = None) -> list:
