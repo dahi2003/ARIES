@@ -1,2 +1,2 @@
 [phases.setup]
-nixPkgs = ["...", "cairo", "pkg-config", "poppler_utils"]
+aptPkgs = ["libcairo2-dev", "pkg-config", "poppler-utils"]
