@@ -39,3 +39,4 @@ redis==7.4.0
 celery==5.6.3
 email-validator
 PyMuPDF
+google
