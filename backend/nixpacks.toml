@@ -1,2 +1,2 @@
 [phases.setup]
-aptPkgs = ["libcairo2-dev", "pkg-config", "poppler-utils"]
+aptPkgs = ["libcairo2-dev", "pkg-config", "poppler-utils", "python3-dev", "libxcb1-dev", "libx11-dev"]
