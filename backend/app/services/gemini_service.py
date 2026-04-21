@@ -2,7 +2,7 @@
 # genai.configure(api_key=GEMINI_API_KEY)  # type: ignore
 
 import fitz  # PyMuPDF
-import google.generativeai as genai  # type: ignore
+from google import genai
 import PIL.Image
 import io
 import json
@@ -15,7 +15,9 @@ load_dotenv()  # Load environment variables from .env file
 GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY set here")
-
+    client = None
+else:
+    client = genai.Client(api_key=api_key)
 genai.configure(api_key=GEMINI_API_KEY)
 # Using Gemini 1.5 Flash
 model = genai.GenerativeModel('gemini-2.5-flash')
