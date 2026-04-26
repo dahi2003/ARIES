@@ -118,7 +118,8 @@ function LoginPage() {
 
         {/* 🔗 Footer Link */}
         <div className="login-footer">
-          Don't have an account? <a href="/register">Register as Professor</a>
+          {/* Don't have an account? <a href="/register">Register as Professor</a> */}
+         Don't have an account? <span style={{color: '#00e5ff', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => navigate('/register')}>Register as Professor</span>
         </div>
       </div>
     </div>
