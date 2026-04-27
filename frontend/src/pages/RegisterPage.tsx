@@ -139,7 +139,7 @@ function RegisterPage() {
               >
                 <option value="professor">Professor</option>
                 <option value="student">Student</option>
-                <option value="superadmin">Super Admin</option>
+                {/* <option value="superadmin">Super Admin</option> */}
               </select>
             </div>
           </div>
